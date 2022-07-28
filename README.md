@@ -113,7 +113,7 @@ Notice that when you want to open a folder, you are prompted to enter your passw
 Instructions vary based on operating system:
 
 <details>
-<summary>Windows</summary>
+<summary><b>Windows</b></summary>
 
 In order to set up key based login with SSH, we will first have to install an SSH client.
 
@@ -152,7 +152,7 @@ Enter passphrase (empty for no passphrase):
     <img src="images/generatekey.gif" alt="Generating RSA key">
 </p>
 
-Now, we need to navigate to our generated keys. Go to your user folder, which should be in the path `C:\Users\[your username]`. You should see two files named `mysshkey` (or whatever you named your keys). The one without a file extension is your *private* key, **which you should never, ever share with ANYONE**. The one with a file extension of `.pub` is your *public key*.
+Now, we need to navigate to our generated keys. Go to your user folder, which should be in the path `C:\Users\[your windows username]`. You should see two files named `mysshkey` (or whatever you named your keys). The one without a file extension is your *private* key, **which you should never, ever share with ANYONE**. The one with a file extension of `.pub` is your *public key*.
 
 We need to save our public key on the server.
 
@@ -166,10 +166,10 @@ We need to save our public key on the server.
 
 Now, we need to configure our Remote-SSH extension to use the private key. This will allow us to automatically log in.
 
-9. Go back to the folder with the keys (reminder: it should be `C:\Users\[your username]`). Select your private key file, which is `mysshkey` (no file extension). Copy the path using the `Copy Path` button at the top of the file explorer.
+9. Go back to the folder with the keys (reminder: it should be `C:\Users\[your windows username]`). Select your private key file, which is `mysshkey` (no file extension). Copy the path using the `Copy Path` button at the top of the file explorer.
 10. Open a *local* instance of VSCode. Pull up the command palette (F1) and type in: "Remote-SSH: Open SSH Configuration File".
 
-Pick the one that starts with `C:\Users\[your username]`. You should see something like:
+Pick the one that starts with `C:\Users\[your windows username]`. You should see something like:
 
 ```
 Host cs010b.cs.ucr.edu
@@ -195,12 +195,12 @@ Host cs010b.cs.ucr.edu
 </details>
 
 <details>
-<summary>MacOS</summary>
+<summary><b>MacOS</b></summary>
 
 </details>
 
 <details>
-<summary>Linux (Ubuntu)</summary>
+<summary><b>Linux (Ubuntu)</b></summary>
 We will generate something called a public/private key pair, which we will use to log into Remote-SSH.
 
 1. Run the following commands in your command prompt (from your user home directory):
