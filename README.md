@@ -41,6 +41,8 @@ Now, we can SSH into UCR servers! To set up a connection to CS010B servers, foll
 2. Click add a new host, and type the following command. Note that your CS username is the same as your UCR NetID.
 
     ``` ssh [your_ucr_netid]@cs010b.cs.ucr.edu ```
+
+> Note: If you are prompted to select the SSH configuration to edit, select the one that starts with `C:\Users` if you are on Windows, or if you are on Linux/MacOS, select the one that starts with `/home/`
    
 3. Now you have saved the address as a known host. Repeat step 1 by typing in "Remote-SSH: Connect to Host" into the command palette (F1), and you should see `cs010b.cs.ucr.edu` is a saved host. Click on it, and a new instance of VSCode should open, prompting you for your CS password.
 
@@ -136,7 +138,7 @@ Generating public/private rsa key pair.
 Enter file in which to save the key [your path here]:
 ```
 
-The name of the file can be whatever you want it to be. For the purposes of the tutorial, the name we will be using is ```mysshkey```.
+The name of the file can be whatever you want it to be. For the purposes of the tutorial, the name we will be using is ```mysshkey```. If you use something else, substitute the name wherever we use ```mysshkey```.
 
 Now, you will be prompted with this:
 
@@ -199,6 +201,53 @@ Host cs010b.cs.ucr.edu
 
 <details>
 <summary>Linux (Ubuntu)</summary>
+We will generate something called a public/private key pair, which we will use to log into Remote-SSH.
+
+1. Run the following commands in your command prompt (from your user home directory):
+```
+cd .ssh
+ssh-keygen -t rsa -b 4096
+```
+
+The output should be the following:
+```
+Generating public/private rsa key pair.
+Enter file in which to save the key [your path here]:
+```
+The name of the file can be whatever you want it to be. For the purposes of the tutorial, the name we will be using is ```mysshkey```. If you use something else, substitute the name wherever we use ```mysshkey```.
+
+Now, you will be prompted with this:
+
+```
+Enter passphrase (empty for no passphrase):
+```
+
+**Do not enter a passphrase**. This will require you to enter your passphrase every time you want to log in, which defeats the purpose of automatically logging in with your public/private key pair. Press Enter twice to proceed without entering a passphrase. Note that there is a tradeoff between security and convenience with this method, as anyone with access with your device will be able to log into UCR servers.
+
+You should see two files in the `.ssh` directory named `mysshkey` (or whatever you named your keys). The one without a file extension is your *private* key, **which you should never, ever share with ANYONE**. The one with a file extension of `.pub` is your *public key*.
+
+2. Run the following command:
+
+```
+cat mysshkey.pub
+```
+Copy the (very long) output using Ctrl+Shift+C. This is your public key.
+
+3. SSH into UCR servers using the method outlined in "Part 1: Installation and Configuration" above.
+4. Make a new folder called `.ssh`, and in there create a file called `authorized_keys`. Paste in the public key, and save the file. For this to work, these must be the exact names of the folder and the file.
+
+<p align="center">
+    <img src="images/savingpublickey.gif" alt="Saving public key on server">
+</p>
+
+5. Open another terminal (start from user home directory), and run the following commands:
+
+```
+cd .ssh
+echo -e '\tIdentityFile /home/~/.ssh/mysshkey' >> config
+```
+
+What the second command does is append a command to the end of your SSH config file that reads the private key, which authenticates you without the need for entering your password.
 
 </details>
 
