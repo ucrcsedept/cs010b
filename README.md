@@ -195,12 +195,7 @@ Host cs010b.cs.ucr.edu
 </details>
 
 <details>
-<summary><b>MacOS</b></summary>
-
-</details>
-
-<details>
-<summary><b>Linux (Ubuntu)</b></summary>
+<summary><b>MacOS/Linux (Ubuntu)</b></summary>
 We will generate something called a public/private key pair, which we will use to log into Remote-SSH.
 
 1. Run the following commands in your command prompt (from your user home directory):
