@@ -40,7 +40,9 @@ Now, we can SSH into UCR servers! To set up a connection to CS010B servers, foll
 1. Open the command palette (press F1), and type "Remote-SSH". Select the "Remote-SSH: Connect to Host" option.
 2. Click add a new host, and type the following command. Note that your CS username is the same as your UCR NetID.
 
-    ``` ssh [your_ucr_netid]@cs010b.cs.ucr.edu ```
+    ``` ssh [YOUR UCR NETID HERE]@cs010b.cs.ucr.edu ```
+
+For example, the command would look something like `ssh jbieb001@cs010b.cs.ucr.edu`.
 
 > Note: If you are prompted to select the SSH configuration to edit, select the one that starts with `C:\Users` if you are on Windows, or if you are on Linux/MacOS, select the one that starts with `/home/`
    
@@ -48,11 +50,13 @@ Now, we can SSH into UCR servers! To set up a connection to CS010B servers, foll
 
 > Note: If you are prompted to select the platform of the remote host `cs010b.cs.ucr.edu`, select Linux, regardless of your operating system.
 
-4. Log in with your CS password. Now that you're connected, go to the extensions marketplace and install the C++ extension. It should look like this:
+4. Log in with your CS password (this may be different from your UCR password). Now that you're connected, go to the extensions marketplace and install the C++ extension. It should look like this:
 
 <p align="center">
     <img src="images/cppextension.png" alt="C++ Extension">
 </p>
+
+> Note: If you are having trouble logging in, [go to this link](https://sites.google.com/a/ucr.edu/cse-instructional-support/home/accounts#h.r2x4rti8gpg9) to reset your CS password.
 
 Now, you have a fully configured workspace on VSCode while connected to school servers!
 
