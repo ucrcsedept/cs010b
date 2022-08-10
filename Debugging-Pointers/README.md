@@ -135,7 +135,7 @@ Feel free to step all over the program, and play around a bit with the debugger.
 
 ### Finding Crashes
 
-In order to find a crash in our program, lets change our `main.cpp` file so that it doesn't work. Change the line `int* arrayPointer = myArray;` to `int* arrayPointer = nullptr;` (should be line 18). Compile and run the program just to make sure you have a segmentation fault (specifically, at the first input). 
+In order to find a crash in our program, lets change our `debugexample.cpp` file so that it doesn't work. Change the line `int* arrayPointer = myArray;` to `int* arrayPointer = nullptr;` (should be line 18). Compile and run the program just to make sure you have a segmentation fault (specifically, at the first input). 
 
 Now, run your debugger through the program by repeatedly pressing the step in button, giving input to the program when prompted. It should terminate at the line where the segmentation fault happened. 
 
