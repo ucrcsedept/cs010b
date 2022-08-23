@@ -24,21 +24,25 @@ Navigating through the Linux file system will be a bit different because we don'
 
 > Note: "Folders" will be referred to as "directories" from now on, since most documentation refer to them as directories.
 
-Log into UCR servers with VSCode's Remote-SSH and open a terminal using `Ctrl + ~` or `Cmd + ~`, and open your folder (just like module 1). Notice that the terminal, whenever it waits for your input, says the current user @ the name of the server, which in this case should look like `[(your UCR id)@xe-02 ~]`. It also says the current directory your terminal is looking at.
+Log into UCR servers with VSCode's Remote-SSH and open a terminal using `Ctrl + ~` or `Cmd + ~`, and open your folder (just like module 1). Notice that the terminal, whenever it waits for your input, says the current user @ the name of the server, which in this case should look something like `[(your UCR netid)@xe-02 ~]`. It also says the current directory your terminal is looking at.
 
-Whenever you log into any of the school servers, you should be placed into your user root directory/home directory. In order to see the current directory you are in, use the `pwd` command (print working directory). The path printed should be `/home/csmajs/[your CS username]`. If not, use the `cd ~` command, where `cd` is the command to "change directory" and `~` is an alias that represents your personal home directory.
+Whenever you log into any of the school servers, you should be placed into your user root directory/home directory. In order to see the current directory you are in, use the `pwd` command (print working directory). The path printed should be `/home/csmajs/[your_ucr_netid]`. If you are not a Computer Science (or related) major, the path printed should be `/class/classes/[your_ucr_netid]`. If not, use the `cd ~` command, where `cd` is the command to "change directory" and `~` is an alias that represents your personal home directory.
 
-Now, let's use the file system. Type the following command:
+Now, lets use the file system. Type the following command:
 
 ``` mkdir example_dir ```
 
-The `mkdir` command stands for "make directory". Since your current path was your home directory, this means your new directory was created here. To make sure, run the `ls` command (stands for "list"). Let's change into that new directory with `cd example_dir`. Our path now should be `/home/csmajs/[your CS username]/example_dir`. Type `pwd` just to make sure that this is your path, since we changed to the `example_dir` directory. Now, let's go back to the home directory. Type `cd ..` The `..` is an alias that represent the previous directory/the current directory's parent. (similary, as mentioned in module 1, a single period `.` represents the current directory). These aliases (`.`, `..`, and `~`) make it much easier to move through the file system without typing the full path and names of directories.
+The `mkdir` command stands for "make directory". Since your current path was your home directory, this means your new directory was created here. To make sure, run the `ls` command (stands for "list"). Let's change into that new directory with `cd example_dir`. Our path now should be `/home/csmajs/[your_ucr_netid]/example_dir` or `/class/classes/[your_ucr_netid]`. Type `pwd` just to make sure that this is your path, since we changed to the `example_dir` directory. Now, lets go back to the home directory. Type `cd ..` The `..` is an alias that represent the previous directory/the current directory's parent. (similary, as mentioned in module 1, a single period `.` represents the current directory). These aliases (`.`, `..`, and `~`) make it much easier to move through the file system without typing the full path and names of directories.
 
 > Note: Most commands in Bash don't echo anything to the console once you execute them to avoid clutter in the terminal. To make sure that the command worked as expected, or that you didn't make a mistake, you should ocassionally `ls` or `pwd` to make sure you're in the right place, or if a command you input worked as you expected.
 
 Now try typing the whole path.
 
-```cd /home/csmajs/<your_CS_username>/example_dir```
+```cd /home/csmajs/[your_ucr_netid]/example_dir```
+
+For non-CS related majors:
+
+```cd /class/classes/[your_ucr_netid]/example_dir```
 
 Check that we are in `example_dir` with `pwd` again, but this time we typed the whole path instead of just `cd example_dir`. This is because, in the first case, we used a *relative* path, since we were changing directories relative to our current directory. The path we used this time was an *absolute* path, since we started with the root directory `/`. Paths that start with the root directory `/` are always absolute, otherwise they are relative.
 
@@ -51,7 +55,7 @@ mv example.txt example_dir
 
 We can "peek" into directories without actually changing into them. Recall the `ls` command, which just lists all the files/directory in the current directory. You can use `ls example_dir` from the home directory to list everything in the `example_dir`, but we didn't actually change directories. When you run this command, you should see that there is a file called `example.txt` in the directory.
 
-Another command we will cover is `rm`. Now that we know how to traverse the file system, let's delete our example directory. Make sure you're home (`pwd`) and type this command:
+Another command we will cover is `rm`. Now that we know how to traverse the file system, lets delete our example directory. Make sure you're home (`pwd`) and type this command:
 
 ``` rm -rf example_dir ```
 
@@ -120,7 +124,7 @@ Once you extract the files, drag and drop them into a Remote-SSH instance of VSC
 
 > Note: If for some reason none of these methods work for you, then you can just `touch` a new file and copy paste the contents from the zipped file into the server. However, it is still important to understand how to upload to a remote server, as sometimes you may have to upload a multitude of files.
 
-## Submitting to ZyBooks
+## Submitting to ZyBooks (if applicable)
 
 Once you're done working on your file and you're ready to submit your file, you have to download the file from the remote server to your local machine. The Remote-SSH plugin allows you to do this quickly.
 
